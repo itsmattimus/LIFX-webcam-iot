@@ -1,0 +1,27 @@
+#canvas {
+    width: 50%;
+    margin: 10px auto;
+    /* display: block; */
+    display: none;
+  }
+
+  #video {
+    width: 50%;
+    display: block;
+    margin: auto;
+    border: 1px solid white;
+  }
+
+  #button-row, #power {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    margin: 10px;
+    width: 140px;
+  }
+  body {
+    background-color: black;
+  }

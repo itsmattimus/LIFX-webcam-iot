@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Webcams and IoT!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>
+
+<!-- light options element -->
+<body>
+  <div id="power">
+    <button id="switch" onclick="setPower()">Power On/Off</button>
+  </div>
+  <div id="button-row">
+    <!-- onclicks subject to change -->
+    <button id="blue" onclick="setLightState(blue)">Blue</button> 
+    <button id="green" onclick="setLightState(green)">Green</button>
+    <button id="red" onclick="setLightState(red)">Red</button>
+    <button id="purple" onclick="setLightState(purple)">Purple</button>
+    <button id="white" onclick="setLightState(white)">White</button>
+    <button id="sample">Sample Image</button>
+    <button id="cycle" onclick="cycleLights()"">Cycle all lights</button>
+  </div>
+
+  <!-- webcam canvas element -->
+  <video id="video" autoplay></video>
+  <canvas id="canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+
+</html>s
