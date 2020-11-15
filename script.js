@@ -75,7 +75,7 @@ const colors = [
     function getHeaders() {
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      headers.append("Authorization", "Bearer cc3defd2bb455c873493c727421b617410c21c394595490658c3cad38c05a2aa");
+      headers.append("Authorization", "Bearer TOKEN HERE");
       headers.get("X-RateLimit-Remaining");
       return headers;
     }
