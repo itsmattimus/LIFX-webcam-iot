@@ -11,20 +11,24 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
 </head>
 
-<!-- light options element -->
+<!-- light switch element -->
 <body>
   <div id="power">
     <button id="switch" onclick="setPower()">Power On/Off</button>
   </div>
   <div id="button-row">
-    <!-- onclicks subject to change -->
     <button id="blue">Blue</button> 
     <button id="green">Green</button>
     <button id="red">Red</button>
     <button id="purple">Purple</button>
     <button id="white">White</button>
+    <button id="rosegold">Rose Gold</button>
+  </div>
+<!-- special effects elements -->
+  <div>
     <button id="sample">Sample Image</button>
     <button id="cycle" onclick="cycleLights()"">Cycle all lights</button>
+    <span>Brightness: <input type="number" min="1" max="100" name="brightness" id="brightness"/></span>
   </div>
 
   <!-- webcam canvas element -->
