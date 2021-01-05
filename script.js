@@ -7,6 +7,7 @@ const colors = [
   purple = { r: 27, g: 2, b: 46 },
   white = { r: 255, g: 255, b: 255 },
   roseGold = { r: 71, g: 43, b: 47 },
+  orange = { r: 255, g: 162, b: 19 }
 ];
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
@@ -36,6 +37,7 @@ for (let i = 0; i < cp.length; i++) {
       console.log(bl);
       e.preventDefault;
       setLightState(colors[i], bl);
+      setBackgroundColor(colors[i]);
     }
   });
 }
@@ -84,7 +86,7 @@ function getRGBFromCanvas(canvasElement) {
 }
 
 function setBackgroundColor(rgb) {
-  document.body.style.backgroundColor = rgb;
+  document.body.style.backgroundColor = 'rgb(' + [rgb.r, rgb.g, rgb.b].join(',') + ')';
 }
 
 function getHeaders() {
@@ -98,24 +100,20 @@ function getHeaders() {
 /* ------ Contacts the LIFX API ------ */
 
 function setLightState(rgb, bl) {
-  if (bl > 1) {
-    alert("must be between 1 and 100 u donkus");
-  } else {
-    // Get the headers and build the PUT request to update all Lights
-    const headers = getHeaders();
-    //when we get the headers, make a fetch and pass the url and settings
-    fetch('https://api.lifx.com/v1/lights/all/state', {
-      method: "PUT",
-      headers: headers,
-      body: JSON.stringify({
-        power: "on",
-        brightness: bl,
-        color: `rgb:${rgb.r},${rgb.g},${rgb.b}`
-      })
+  // Get the headers and build the PUT request to update all Lights
+  const headers = getHeaders();
+  //when we get the headers, make a fetch and pass the url and settings
+  fetch('https://api.lifx.com/v1/lights/all/state', {
+    method: "PUT",
+    headers: headers,
+    body: JSON.stringify({
+      power: "on",
+      brightness: bl,
+      color: `rgb:${rgb.r},${rgb.g},${rgb.b}`
     })
-      .then(data => data.json())
-      .then(json => console.log(json));//to check for what we got
-  }
+  })
+    .then(data => data.json())
+    .then(json => console.log(json));//to check for what we got
 }
 
 //LIFX endpoint will know if the light is on or off
@@ -130,6 +128,23 @@ function setPower() {
   })
     .then(data => data.json())
     .then(json => console.log(json));
+}
+
+function setBrightnessState(bl) {
+  if (bl > 1) {
+    alert("must be between 1 and 100 u donkus");
+  } else {
+    const headers = getHeaders();
+    fetch('https://api.lifx.com/v1/lights/all/state', {
+      method: "PUT",
+      headers: headers,
+      body: JSON.stringify({
+        brightness: bl
+      })
+    })
+      .then(data => data.json())
+      .then(json => console.log(json));
+  }
 }
 
 //cycles through an array of light states
